@@ -3,11 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Xzeon Technologies — Software, Web & AI Solutions</title>
-  <meta name="description" content="Xzeon Technologies helps businesses accelerate growth through custom software, high-performance websites, AI automation systems tailored for the modern market." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <title>Xzeon Technologies | AI • Web • Automation</title>
+  <meta name="description" content="Xzeon Technologies builds premium websites, AI-powered solutions, automation systems, and scalable digital products for modern businesses." />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="apple-touch-icon" href="logo.png" />
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Xzeon Technologies | AI • Web • Automation" />
+  <meta property="og:description" content="Xzeon Technologies builds premium websites, AI-powered solutions, automation systems, and scalable digital products for modern businesses." />
+  <meta property="og:image" content="logo.png" />
+  <meta property="og:type" content="website" />
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Xzeon Technologies | AI • Web • Automation" />
+  <meta name="twitter:description" content="Xzeon Technologies builds premium websites, AI-powered solutions, automation systems, and scalable digital products for modern businesses." />
+  <meta name="twitter:image" content="logo.png" />
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400,300&display=swap" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <style>
@@ -21,12 +35,23 @@
       --orange: #FE6622;
       --blue:   #4580B2;
       --green:  #00A56B;
-      --font-display: 'Syne', sans-serif;
-      --font-body:    'Space Grotesk', sans-serif;
-      --font-serif:   'DM Serif Display', serif;
+      --font-display: 'Satoshi', sans-serif;
+      --font-body:    'Satoshi', sans-serif;
+      --font-serif:   'Satoshi', sans-serif;
       --border: 3px solid var(--dark);
       --shadow: 6px 6px 0 var(--dark);
       --shadow-sm: 4px 4px 0 var(--dark);
+      
+      /* Spacing System */
+      --space-xs: 8px;
+      --space-sm: 16px;
+      --space-md: 24px;
+      --space-lg: 32px;
+      --space-xl: 48px;
+      --space-2xl: 64px;
+      
+      /* Touch Targets */
+      --touch-target: 48px;
     }
 
     html, body {
@@ -36,7 +61,6 @@
       color: var(--dark);
       font-family: var(--font-body);
       -webkit-font-smoothing: antialiased;
-      cursor: none;
     }
 
     /* ── GRAIN ─────────────────────────────── */
@@ -57,23 +81,11 @@
 
     /* ── CUSTOM CURSOR ────────────────────── */
     #cursor-dot {
-      position: fixed; width: 10px; height: 10px;
-      background: var(--dark); border-radius: 50%;
-      pointer-events: none; z-index: 9999;
-      transform: translate(-50%,-50%);
-      transition: width .15s, height .15s, background .2s;
-      will-change: transform;
+      display: none;
     }
     #cursor-ring {
-      position: fixed; width: 36px; height: 36px;
-      border: 2px solid var(--orange); border-radius: 50%;
-      pointer-events: none; z-index: 9998;
-      transform: translate(-50%,-50%);
-      transition: width .3s, height .3s, border-color .3s;
-      will-change: transform;
+      display: none;
     }
-    body.ch #cursor-dot  { width: 14px; height: 14px; background: var(--pink); }
-    body.ch #cursor-ring { width: 56px; height: 56px; border-color: var(--pink); }
     #mouse-light {
       position: fixed; width: 700px; height: 700px; border-radius: 50%;
       background: radial-gradient(circle, rgba(254,190,15,.06) 0%, transparent 65%);
@@ -108,10 +120,124 @@
       border-bottom: 3px solid var(--dark);
       position: relative; z-index: 50;
     }
+    
+    /* Mobile Menu Toggle */
+    .mobile-menu-toggle {
+      display: none; /* Hidden on desktop */
+      flex-direction: column;
+      justify-content: space-between;
+      width: 28px;
+      height: 20px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 101;
+      position: relative;
+    }
+    .mobile-menu-toggle span {
+      display: block;
+      width: 100%;
+      height: 3px;
+      background: var(--dark);
+      transition: all 0.3s ease;
+    }
+    .mobile-menu-toggle.active span:nth-child(1) {
+      transform: translateY(8.5px) rotate(45deg);
+    }
+    .mobile-menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .mobile-menu-toggle.active span:nth-child(3) {
+      transform: translateY(-8.5px) rotate(-45deg);
+    }
+    
+    /* Mobile Menu Overlay */
+    .mobile-menu-overlay {
+      display: none; /* Hidden by default, shown only on mobile when active */
+      position: fixed;
+      top: 68px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(28, 18, 8, 0.8);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      z-index: 99;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .mobile-menu-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    
+    /* Mobile Menu */
+    .mobile-menu {
+      display: none; /* Hidden by default, shown only on mobile */
+      position: fixed;
+      top: 68px;
+      left: 0;
+      right: 0;
+      background: var(--cream);
+      border-bottom: 3px solid var(--dark);
+      max-height: calc(100vh - 68px);
+      overflow-y: auto;
+      transform: translateY(-100%);
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 100;
+    }
+    .mobile-menu.active {
+      transform: translateY(0);
+    }
+    .mobile-menu ul {
+      list-style: none;
+      padding: var(--space-md) 0;
+    }
+    .mobile-menu ul li {
+      border-bottom: 2px solid rgba(28, 18, 8, 0.1);
+    }
+    .mobile-menu ul li:last-child {
+      border-bottom: none;
+    }
+    .mobile-menu ul li a {
+      display: block;
+      padding: var(--space-md) var(--space-lg);
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--dark);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: all 0.2s ease;
+      min-height: var(--touch-target);
+      display: flex;
+      align-items: center;
+    }
+    .mobile-menu ul li a:active {
+      background: var(--yellow);
+      transform: translateX(8px);
+    }
+    .mobile-menu ul li a.active {
+      background: var(--orange);
+      color: var(--cream);
+    }
 
     .nav-logo {
       display: flex; align-items: center; gap: 10px;
       text-decoration: none;
+      z-index: 101;
+      transition: transform 0.3s ease-out;
+    }
+    .nav-logo:hover {
+      transform: scale(1.03);
+    }
+    .nav-logo-img {
+      height: 48px;
+      width: auto;
+      display: block;
     }
     .nav-logo-mark {
       width: 32px; height: 32px;
@@ -155,7 +281,7 @@
       background: transparent; color: var(--dark);
       font-family: var(--font-display); font-size: 12px; font-weight: 700;
       letter-spacing: .08em; text-transform: uppercase;
-      cursor: none; text-decoration: none; display: inline-block;
+      text-decoration: none; display: inline-block;
       transition: all .2s;
       box-shadow: 3px 3px 0 var(--dark);
     }
@@ -169,7 +295,7 @@
       background: var(--yellow); color: var(--dark);
       font-family: var(--font-display); font-size: 12px; font-weight: 700;
       letter-spacing: .08em; text-transform: uppercase;
-      cursor: none; text-decoration: none; display: inline-block;
+      text-decoration: none; display: inline-block;
       transition: all .2s;
       box-shadow: 3px 3px 0 var(--dark);
     }
@@ -209,7 +335,7 @@
     .hero-heading {
       font-family: var(--font-display);
       font-weight: 800;
-      font-size: clamp(36px, 4.8vw, 72px);
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
       line-height: 1.0;
       letter-spacing: -.02em;
       color: var(--dark);
@@ -227,35 +353,44 @@
       display: block; margin-top: 6px;
       font-family: var(--font-serif); font-style: italic;
       font-weight: 400;
-      font-size: clamp(26px, 3.2vw, 50px);
+      font-size: clamp(1.625rem, 5vw, 3.125rem);
       color: var(--dark);
     }
 
     .bottom-left { display: flex; flex-direction: column; gap: 20px; align-items: flex-start; }
     .subtitle {
-      font-size: 14px; font-weight: 400;
+      font-size: clamp(0.875rem, 1.5vw, 0.9375rem);
+      font-weight: 400;
       color: rgba(28,18,8,.6); line-height: 1.75; max-width: 380px;
     }
     .cta-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
 
     .btn-cta-primary {
       padding: 13px 28px;
+      min-height: var(--touch-target);
       border: 2px solid var(--dark); border-radius: 0;
       background: var(--orange); color: var(--cream);
-      font-family: var(--font-display); font-size: 13px; font-weight: 700;
+      font-family: var(--font-display); 
+      font-size: clamp(0.8125rem, 1.2vw, 0.8125rem);
+      font-weight: 700;
       letter-spacing: .06em; text-transform: uppercase;
-      cursor: none; text-decoration: none; display: inline-block;
+      text-decoration: none; display: inline-flex;
+      align-items: center; justify-content: center;
       transition: all .18s; box-shadow: 5px 5px 0 var(--dark);
     }
     .btn-cta-primary:hover { transform: translate(-2px,-2px); box-shadow: 7px 7px 0 var(--dark); }
 
     .btn-cta-secondary {
       padding: 13px 28px;
+      min-height: var(--touch-target);
       border: 2px solid var(--dark); border-radius: 0;
       background: transparent; color: var(--dark);
-      font-family: var(--font-display); font-size: 13px; font-weight: 700;
+      font-family: var(--font-display); 
+      font-size: clamp(0.8125rem, 1.2vw, 0.8125rem);
+      font-weight: 700;
       letter-spacing: .06em; text-transform: uppercase;
-      cursor: none; text-decoration: none; display: inline-block;
+      text-decoration: none; display: inline-flex;
+      align-items: center; justify-content: center;
       transition: all .18s; box-shadow: 5px 5px 0 var(--dark);
     }
     .btn-cta-secondary:hover { background: var(--dark); color: var(--cream); transform: translate(-2px,-2px); box-shadow: 7px 7px 0 var(--dark); }
@@ -335,37 +470,195 @@
     }
     .ticker-track { display: flex; white-space: nowrap; }
     .ticker-item {
-      display: inline-flex; align-items: center; gap: 14px; padding: 0 24px;
-      font-family: var(--font-display); font-size: 11px; font-weight: 700;
-      letter-spacing: .14em; text-transform: uppercase; color: var(--dark);
+      display: inline-flex; align-items: center; gap: 18px; padding: 0 28px;
+      font-family: var(--font-display); font-size: 13px; font-weight: 500;
+      letter-spacing: -0.01em; color: var(--dark);
     }
     .ticker-sep { color: var(--orange); font-size: 14px; }
 
     /* ── CORNER STAMP ─────────────────────── */
     .corner-stamp {
       position: absolute; bottom: 52px; left: 52px; z-index: 15;
-      width: 72px; height: 72px;
+      width: 80px; height: 80px;
       border: 3px solid var(--dark); border-radius: 50%;
       background: var(--pink);
       display: flex; flex-direction: column; align-items: center; justify-content: center;
       transform: rotate(-12deg);
       box-shadow: 3px 3px 0 var(--dark);
     }
-    .stamp-text { font-family: var(--font-display); font-size: 8px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--cream); text-align: center; line-height: 1.3; }
+    .stamp-text { font-family: var(--font-display); font-size: 10px; font-weight: 700; letter-spacing: 0; color: var(--cream); text-align: center; line-height: 1.4; }
 
     /* ── RESPONSIVE ────────────────────────── */
-    @media(max-width:900px) {
-      .hero-body { grid-template-columns:1fr; }
-      .left-panel { border-right:none; border-bottom: 3px solid var(--dark); padding: 32px 24px; }
-      .right-panel { height: 40vh; }
-      nav { padding: 0 24px; }
-      .nav-links { display: none; }
+    
+    /* Tablet Landscape - 1024px to 1439px */
+    @media(max-width: 1439px) {
+      nav { padding: 0 var(--space-xl); }
+      .left-panel { padding: var(--space-xl); }
+      .right-panel { padding: var(--space-lg); }
     }
-    @media(max-width:600px) {
-      .nav-actions .btn-outline { display:none; }
-      .cta-row { flex-direction:column; align-items:flex-start; }
+    
+    /* Tablet Portrait - 768px to 1023px */
+    @media(max-width: 1023px) {
+      .hero-body { grid-template-columns: 1fr; }
+      .left-panel { 
+        border-right: none; 
+        border-bottom: 3px solid var(--dark); 
+        padding: var(--space-2xl) var(--space-lg);
+      }
+      .right-panel { 
+        height: 50vh; 
+        min-height: 400px; 
+        padding: var(--space-lg);
+      }
+      nav { padding: 0 var(--space-lg); }
+      .nav-links { display: none !important; }
+      .mobile-menu-toggle { display: flex; }
+      .mobile-menu, .mobile-menu-overlay { display: block; }
+    }
+    
+    /* Large Mobile - 480px to 767px */
+    @media(max-width: 767px) {
+      nav { 
+        padding: 0 var(--space-md);
+        height: 64px;
+      }
+      .mobile-menu { top: 64px; }
+      .mobile-menu-overlay { top: 64px; }
+      .nav-actions .btn-outline { display: none; }
+      .nav-actions { gap: 0; }
+      .btn-solid { 
+        padding: 10px 20px; 
+        font-size: 0.75rem;
+        min-height: 44px;
+      }
+      .left-panel { padding: var(--space-xl) var(--space-md); }
+      .right-panel { 
+        height: 45vh; 
+        min-height: 350px; 
+        padding: var(--space-md);
+      }
+      .hero-heading { 
+        font-size: clamp(2rem, 7vw, 3rem);
+        line-height: 1.1;
+        margin-top: var(--space-sm);
+      }
+      .hero-heading .last-line { 
+        font-size: clamp(1.375rem, 5vw, 2rem);
+        margin-top: var(--space-xs);
+      }
+      .subtitle { 
+        max-width: 100%;
+        font-size: 0.9375rem;
+        margin-bottom: var(--space-md);
+      }
+      .cta-row { 
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        gap: var(--space-sm);
+      }
+      .btn-cta-primary, 
+      .btn-cta-secondary { 
+        width: 100%; 
+        text-align: center;
+        justify-content: center;
+      }
+      .vintage-badge { 
+        font-size: 0.6875rem;
+        padding: 6px 14px;
+        margin-bottom: var(--space-sm);
+      }
+      .corner-stamp { 
+        width: 64px; 
+        height: 64px; 
+        bottom: var(--space-md);
+        left: var(--space-md);
+      }
+      .stamp-text { font-size: 0.5625rem; }
+      .dash-card { 
+        max-width: 100%; 
+        padding: var(--space-md);
+      }
+      .fpill { 
+        font-size: 0.6875rem;
+        padding: 6px 12px;
+      }
+    }
+    
+    /* Small Mobile - 320px to 479px */
+    @media(max-width: 479px) {
+      nav { 
+        padding: 0 var(--space-sm);
+        height: 56px;
+      }
+      .mobile-menu { top: 56px; max-height: calc(100vh - 56px); }
+      .mobile-menu-overlay { top: 56px; }
+      .mobile-menu ul li a { 
+        font-size: 1rem;
+        padding: var(--space-sm) var(--space-md);
+      }
+      .nav-logo-img {
+        height: 38px;
+      }
+      .nav-brand { font-size: 1rem; }
+      .btn-solid { 
+        padding: 8px 16px;
+        font-size: 0.6875rem;
+        min-height: 40px;
+      }
+      .left-panel { padding: var(--space-lg) var(--space-sm); }
+      .right-panel { 
+        height: 40vh; 
+        min-height: 300px;
+        padding: var(--space-sm);
+      }
+      .hero-heading { 
+        font-size: clamp(1.75rem, 8vw, 2.5rem);
+        line-height: 1.15;
+      }
+      .hero-heading .last-line { 
+        font-size: clamp(1.125rem, 5vw, 1.5rem);
+      }
+      .subtitle { font-size: 0.875rem; }
+      .vintage-badge { 
+        font-size: 0.625rem;
+        padding: 4px 10px;
+      }
+      .btn-cta-primary,
+      .btn-cta-secondary {
+        font-size: 0.75rem;
+        padding: 12px 20px;
+      }
+      .corner-stamp { 
+        width: 56px; 
+        height: 56px; 
+        bottom: var(--space-sm);
+        left: var(--space-sm);
+      }
+      .stamp-text { 
+        font-size: 0.5rem;
+        line-height: 1.2;
+      }
+      .dash-card { padding: var(--space-sm); }
+      .dash-metric-big { font-size: 2rem; }
+      .fpill { 
+        font-size: 0.625rem;
+        padding: 4px 8px;
+      }
+    }
+    
+    /* Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
     }
   </style>
+  <link rel="stylesheet" href="responsive.css" />
 </head>
 <body>
 <div id="grain"></div>
@@ -380,13 +673,7 @@
   <!-- NAV -->
   <nav>
     <a href="index.html" class="nav-logo">
-      <div class="nav-logo-mark">
-        <svg viewBox="0 0 20 20" fill="none">
-          <polygon points="10,1 19,6 19,14 10,19 1,14 1,6" fill="var(--yellow)" stroke="var(--yellow)" stroke-width="1"/>
-          <circle cx="10" cy="10" r="3" fill="var(--cream)"/>
-        </svg>
-      </div>
-      <span class="nav-brand">Xzeon<span>.</span></span>
+      <img src="logo.png" alt="Xzeon Technologies Logo" class="nav-logo-img" />
     </a>
     <ul class="nav-links">
       <li><a href="index.html" class="active">Home</a></li>
@@ -397,9 +684,28 @@
     </ul>
     <div class="nav-actions">
       <div class="magnetic-wrap"><a href="projects.html" class="btn-outline">Our Work</a></div>
-      <div class="magnetic-wrap"><a href="contact.html" class="btn-solid">Book a Call</a></div>
+      <div class="magnetic-wrap"><a href="https://wa.me/917340591251?text=Hello%20Xzeon%20Technologies%2C%0A%0AI%20visited%20your%20website%20and%20I%27m%20interested%20in%20your%20services.%0A%0APlease%20contact%20me%20to%20discuss%20my%20project.%0A%0AThank%20you%21" target="_blank" class="btn-solid">Book a Call</a></div>
+      <button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </nav>
+  
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay"></div>
+  
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <ul>
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
 
   <!-- HERO BODY -->
   <div class="hero-body">
@@ -417,7 +723,7 @@
         </h1>
       </div>
       <div class="bottom-left">
-        <p class="subtitle">Xzeon Technologies helps businesses accelerate growth through custom software, high-performance websites, automation systems, and AI-driven solutions.</p>
+        <p class="subtitle">We build custom software, high-performance websites, and AI-driven solutions that help businesses automate workflows, improve operations, and create better digital experiences.</p>
         <div class="cta-row">
           <div class="magnetic-wrap"><a href="projects.html" class="btn-cta-primary">Explore Our Work →</a></div>
           <div class="magnetic-wrap"><a href="contact.html" class="btn-cta-secondary">Let's Build Together</a></div>
@@ -429,7 +735,7 @@
     <div class="right-panel">
       <!-- Floating pills -->
       <div class="float-pills">
-        <div class="fpill">🚀 50+ Projects</div>
+        <div class="fpill">🚀 20+ Projects</div>
         <div class="fpill">🤖 AI Automation</div>
         <div class="fpill">💻 Web & Software</div>
         <div class="fpill">📈 Growth-First</div>
@@ -441,18 +747,18 @@
           <span class="dash-logo-text">Xzeon Analytics</span>
           <div class="live-badge"><div class="live-dot"></div> Live</div>
         </div>
-        <div class="dash-metric-big">$2.4M</div>
-        <div class="dash-metric-label">Revenue Growth · Q4 2024</div>
-        <div class="dash-change">↑ 34.2% vs last quarter</div>
+        <div class="dash-metric-big">20+</div>
+        <div class="dash-metric-label">Projects Delivered · 2024</div>
+        <div class="dash-change">↑ Custom Solutions Built</div>
         <div class="bars">
           <div class="bar"></div><div class="bar"></div><div class="bar"></div>
           <div class="bar"></div><div class="bar"></div><div class="bar"></div>
           <div class="bar"></div><div class="bar"></div>
         </div>
         <div class="dash-metrics">
-          <div class="mini-metric"><div class="mm-val" style="color:var(--orange)">50+</div><div class="mm-lbl">Projects</div></div>
-          <div class="mini-metric"><div class="mm-val">32</div><div class="mm-lbl">Clients</div></div>
-          <div class="mini-metric"><div class="mm-val" style="color:var(--green)">99.9%</div><div class="mm-lbl">Uptime</div></div>
+          <div class="mini-metric"><div class="mm-val" style="color:var(--orange)">20+</div><div class="mm-lbl">Projects</div></div>
+          <div class="mini-metric"><div class="mm-val">8+</div><div class="mm-lbl">Clients</div></div>
+          <div class="mini-metric"><div class="mm-val" style="color:var(--green)">100%</div><div class="mm-lbl">Custom</div></div>
         </div>
       </div>
 
@@ -485,6 +791,7 @@
 </div>
 
 <script>
+
 /* DUST — warm amber particles */
 (function(){
   const c=document.getElementById('dust'),ctx=c.getContext('2d');
@@ -540,5 +847,7 @@ if(typeof gsap!=='undefined'){
     .from('.fpill',{scale:0,opacity:0,duration:.5,stagger:.1,ease:'back.out(2)'},'-=.5');
 }
 </script>
+
+<script src="responsive.js" defer></script>
 </body>
 </html>

@@ -3,10 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact — Xzeon Technologies</title>
+  <title>Contact — Xzeon Technologies | AI • Web • Automation</title>
   <meta name="description" content="Start your project with Xzeon Technologies. Reach out and we'll get back within 24 hours." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="apple-touch-icon" href="logo.png" />
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Contact — Xzeon Technologies" />
+  <meta property="og:description" content="Start your project with Xzeon Technologies. Reach out and we'll get back within 24 hours." />
+  <meta property="og:image" content="logo.png" />
+  <meta property="og:type" content="website" />
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Contact — Xzeon Technologies" />
+  <meta name="twitter:description" content="Start your project with Xzeon Technologies. Reach out and we'll get back within 24 hours." />
+  <meta name="twitter:image" content="logo.png" />
+  
+  
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -22,9 +38,9 @@
       --orange: #FE6622;
       --blue:   #4580B2;
       --green:  #00A56B;
-      --font-display: 'Syne', sans-serif;
-      --font-body:    'Space Grotesk', sans-serif;
-      --font-serif:   'DM Serif Display', serif;
+      --font-display: 'Satoshi', sans-serif;
+      --font-body:    'Satoshi', sans-serif;
+      --font-serif:   'Satoshi', sans-serif;
       --border: 3px solid var(--dark);
       --shadow: 6px 6px 0 var(--dark);
       --shadow-sm: 4px 4px 0 var(--dark);
@@ -36,7 +52,7 @@
       color: var(--dark);
       font-family: var(--font-body);
       -webkit-font-smoothing: antialiased;
-      cursor: none;
+      
       overflow-x: hidden;
     }
 
@@ -58,23 +74,11 @@
 
     /* ── CUSTOM CURSOR ────────────────────── */
     #cursor-dot {
-      position: fixed; width: 10px; height: 10px;
-      background: var(--dark); border-radius: 50%;
-      pointer-events: none; z-index: 9999;
-      transform: translate(-50%,-50%);
-      transition: width .15s, height .15s, background .2s;
-      will-change: transform;
+      display: none;
     }
     #cursor-ring {
-      position: fixed; width: 36px; height: 36px;
-      border: 2px solid var(--orange); border-radius: 50%;
-      pointer-events: none; z-index: 9998;
-      transform: translate(-50%,-50%);
-      transition: width .3s, height .3s, border-color .3s;
-      will-change: transform;
+      display: none;
     }
-    body.ch #cursor-dot  { width: 14px; height: 14px; background: var(--pink); }
-    body.ch #cursor-ring { width: 56px; height: 56px; border-color: var(--pink); }
     #mouse-light {
       position: fixed; width: 700px; height: 700px; border-radius: 50%;
       background: radial-gradient(circle, rgba(254,190,15,.06) 0%, transparent 65%);
@@ -146,7 +150,7 @@
       background: transparent; color: var(--dark);
       font-family: var(--font-display); font-size: 12px; font-weight: 700;
       letter-spacing: .08em; text-transform: uppercase;
-      cursor: none; text-decoration: none; display: inline-block;
+       text-decoration: none; display: inline-block;
       transition: all .2s;
       box-shadow: 3px 3px 0 var(--dark);
     }
@@ -160,7 +164,7 @@
       background: var(--yellow); color: var(--dark);
       font-family: var(--font-display); font-size: 12px; font-weight: 700;
       letter-spacing: .08em; text-transform: uppercase;
-      cursor: none; text-decoration: none; display: inline-block;
+       text-decoration: none; display: inline-block;
       transition: all .2s;
       box-shadow: 3px 3px 0 var(--dark);
     }
@@ -323,7 +327,7 @@
       -webkit-appearance: none;
       border-radius: 0;
     }
-    .field-wrap select { cursor: none; }
+    .field-wrap select {  }
     .field-wrap select option { background: var(--cream); color: var(--dark); }
     .field-wrap textarea { resize: none; padding-top: 24px; }
     .field-wrap input:focus, .field-wrap select:focus, .field-wrap textarea:focus {
@@ -347,7 +351,7 @@
       width: 100%; padding: 16px;
       background: var(--orange); color: var(--cream);
       font-family: var(--font-display); font-size: 14px; font-weight: 700;
-      border: 2px solid var(--dark); cursor: none;
+      border: 2px solid var(--dark); 
       letter-spacing: .04em; text-transform: uppercase;
       box-shadow: 4px 4px 0 var(--dark);
       transition: all .2s;
@@ -411,7 +415,7 @@
       justify-content: space-between; padding: 24px 0;
       background: none; border: none; color: var(--dark);
       font-family: var(--font-display); font-size: 16px; font-weight: 800;
-      cursor: none; text-align: left; gap: 20px;
+       text-align: left; gap: 20px;
       transition: color .2s;
     }
     .faq-q:hover { color: var(--orange); }
@@ -514,22 +518,59 @@
 
     /* ── RESPONSIVE ────────────────────────── */
     @media(max-width:900px) {
-      .contact-hero { grid-template-columns: 1fr; }
-      .contact-left { padding: 80px 24px 40px; border-right: none; border-bottom: 3px solid var(--dark); }
+      .contact-hero { grid-template-columns: 1fr; min-height: auto; }
+      .contact-left { padding: 60px 24px 40px; border-right: none; border-bottom: 3px solid var(--dark); }
       .contact-right { padding: 40px 24px 60px; }
       nav { padding: 0 24px; }
       .nav-links { display: none; }
       footer { grid-template-columns: 1fr; gap: 40px; padding: 60px 24px; }
-      .foot-right { justify-content: flex-start; gap: 60px; }
+      .foot-right { justify-content: flex-start; gap: 40px; }
+      .contact-left h1 { font-size: clamp(32px, 7vw, 48px); }
+      .contact-sub { font-size: 14px; }
+      .form-card { padding: 32px 24px; }
     }
     @media(max-width:768px) {
       .form-row { grid-template-columns: 1fr; }
-      .faq-section { padding: 80px 24px; }
+      .faq-section { padding: 60px 24px; }
+      .faq-q { font-size: 15px; padding: 20px 0; }
+      .faq-a-inner { font-size: 13px; }
     }
     @media(max-width:600px) {
       .nav-actions .btn-outline { display: none; }
+      .nav-actions { gap: 0; }
+      .btn-solid { padding: 6px 16px; font-size: 11px; }
+      .contact-left { padding: 40px 20px 32px; }
+      .contact-right { padding: 32px 20px 48px; }
+      .contact-left h1 { font-size: 28px; margin-bottom: 20px; }
+      .contact-left h1 em { font-size: 22px; }
+      .contact-sub { font-size: 13px; max-width: 100%; margin-bottom: 32px; }
+      .info-card { padding: 14px 16px; }
+      .info-icon { width: 36px; height: 36px; }
+      .info-text { font-size: 13px; }
+      .vintage-badge { font-size: 10px; padding: 4px 12px; margin-bottom: 20px; }
+      .form-card { padding: 28px 20px; }
+      .form-title { font-size: 20px; margin-bottom: 24px; }
+      .field-wrap { margin-bottom: 18px; }
+      .field-wrap input, .field-wrap select, .field-wrap textarea { font-size: 13px; padding: 20px 14px 8px; }
+      .btn-submit { padding: 14px; font-size: 13px; }
+      .faq-section { padding: 48px 20px; }
+      .faq-title { font-size: 24px; margin-bottom: 32px; }
+      footer { padding: 48px 20px; }
+      .foot-right { gap: 32px; }
+      .ticker-bar { height: 36px; }
+      .ticker-item { font-size: 10px; padding: 0 18px; }
+      nav { padding: 0 16px; }
+      .nav-brand { font-size: 16px; }
+      .nav-logo-mark { width: 28px; height: 28px; }
+    }
+    @media(max-width:400px) {
+      .contact-left h1 { font-size: 24px; }
+      .contact-left h1 em { font-size: 20px; }
+      .form-card { padding: 24px 16px; }
+      nav { height: 56px; }
     }
   </style>
+  <link rel="stylesheet" href="responsive.css" />
 </head>
 <body>
 <div id="grain"></div>
@@ -541,13 +582,7 @@
 <!-- NAV -->
 <nav>
   <a href="index.html" class="nav-logo">
-    <div class="nav-logo-mark">
-      <svg viewBox="0 0 20 20" fill="none">
-        <polygon points="10,1 19,6 19,14 10,19 1,14 1,6" fill="var(--yellow)" stroke="var(--yellow)" stroke-width="1"/>
-        <circle cx="10" cy="10" r="3" fill="var(--cream)"/>
-      </svg>
-    </div>
-    <span class="nav-brand">Xzeon<span>.</span></span>
+    <img src="logo.png" alt="Xzeon Technologies Logo" class="nav-logo-img" />
   </a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
@@ -558,7 +593,7 @@
   </ul>
   <div class="nav-actions">
     <div class="magnetic-wrap"><a href="projects.html" class="btn-outline">Our Work</a></div>
-    <div class="magnetic-wrap"><a href="contact.html" class="btn-solid">Book a Call</a></div>
+    <div class="magnetic-wrap"><a href="https://wa.me/917340591251?text=Hello%20Xzeon%20Technologies%2C%0A%0AI%20visited%20your%20website%20and%20I%27m%20interested%20in%20your%20services.%0A%0APlease%20contact%20me%20to%20discuss%20my%20project.%0A%0AThank%20you%21" target="_blank" class="btn-solid">Book a Call</a></div>
   </div>
 </nav>
 
@@ -570,7 +605,7 @@
   <div class="contact-left">
     <div class="vintage-badge"><span class="badge-dot"></span> Get In Touch</div>
     <h1 id="hero-h1">
-      Let's Build Something<br>
+      Let's Build<br>Something<br>
       <span class="hl-orange">Extraordinary.</span>
     </h1>
     <p class="contact-sub">Tell us about your project and we'll get back to you within 24 hours — no obligation, no fluff.</p>
@@ -581,21 +616,21 @@
         <div class="info-icon">
           <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         </div>
-        <span class="info-text">hello@xzeon.tech</span>
+        <a href="mailto:xzenontechnologies@gmail.com" class="info-text" style="text-decoration:none;color:inherit;">xzenontechnologies@gmail.com</a>
       </div>
       <!-- Info 2 -->
       <div class="info-card">
         <div class="info-icon">
           <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.38 2 2 0 0 1 3.6 2H7a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         </div>
-        <span class="info-text">+1 (555) 000-0000</span>
+        <span class="info-text">+91 91665 04708</span>
       </div>
       <!-- Info 3 -->
       <div class="info-card">
         <div class="info-icon">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M9 10h.01M15 10h.01M9.5 14a3.5 3.5 0 0 0 5 0"/></svg>
         </div>
-        <span class="info-text">Remote-First · Worldwide</span>
+        <a href="https://wa.me/917340591251" target="_blank" class="info-text" style="text-decoration:none;color:inherit;">WhatsApp: +91 73405 91251</a>
       </div>
     </div>
 
@@ -698,15 +733,14 @@
 <footer>
   <div class="foot-left">
     <a href="index.html" class="foot-logo">
-      <div class="nav-logo-mark">
-        <svg viewBox="0 0 20 20" fill="none">
-          <polygon points="10,1 19,6 19,14 10,19 1,14 1,6" fill="var(--yellow)" stroke="var(--yellow)" stroke-width="1"/>
-          <circle cx="10" cy="10" r="3" fill="var(--cream)"/>
-        </svg>
-      </div>
-      <span class="nav-brand">Xzeon<span>.</span></span>
+      <img src="logo.png" alt="Xzeon Technologies Logo" class="foot-logo-img" />
     </a>
-    <p class="foot-tagline">Building powerful digital solutions for modern businesses. Software · Web · AI.</p>
+    <p class="foot-tagline">AI • Web Development • Automation</p>
+    <div class="foot-contact-info">
+      <p><strong>WhatsApp:</strong> <a href="https://wa.me/917340591251" style="color:inherit;">+91 73405 91251</a></p>
+      <p><strong>Phone:</strong> <a href="tel:+919166504708" style="color:inherit;">+91 91665 04708</a></p>
+      <p><strong>Email:</strong> <a href="mailto:xzenontechnologies@gmail.com" style="color:inherit;">xzenontechnologies@gmail.com</a></p>
+    </div>
     <p class="foot-copy">© 2026 Xzeon Technologies. All rights reserved.</p>
     <div class="foot-socials">
       <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
@@ -728,9 +762,9 @@
     <div class="foot-col">
       <h4>Contact</h4>
       <ul>
-        <li><a href="mailto:hello@xzeon.tech">hello@xzeon.tech</a></li>
-        <li><a href="#">+1 (555) 000-0000</a></li>
-        <li><a href="#">Remote · Worldwide</a></li>
+        <li><a href="mailto:xzenontechnologies@gmail.com">xzenontechnologies@gmail.com</a></li>
+        <li><a href="tel:+919166504708">+91 91665 04708</a></li>
+        <li><a href="https://wa.me/917340591251" target="_blank">WhatsApp: +91 73405 91251</a></li>
       </ul>
     </div>
   </div>
@@ -853,5 +887,7 @@ if(typeof gsap!=='undefined'){
   gsap.from('.faq-item',{scrollTrigger:{trigger:'.faq-section',start:'top 85%'},y:24,opacity:0,duration:.6,stagger:.1,ease:'power3.out'});
 }
 </script>
+
+<script src="responsive.js" defer></script>
 </body>
 </html>

@@ -3,10 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Projects — Xzeon Technologies</title>
+  <title>Projects — Xzeon Technologies | AI • Web • Automation</title>
   <meta name="description" content="Explore Xzeon Technologies' portfolio: AI platforms, SaaS products, e-commerce systems, mobile apps, and enterprise software solutions." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="apple-touch-icon" href="logo.png" />
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Projects — Xzeon Technologies" />
+  <meta property="og:description" content="Explore Xzeon Technologies' portfolio: AI platforms, SaaS products, e-commerce systems, mobile apps, and enterprise software solutions." />
+  <meta property="og:image" content="logo.png" />
+  <meta property="og:type" content="website" />
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Projects — Xzeon Technologies" />
+  <meta name="twitter:description" content="Explore Xzeon Technologies' portfolio: AI platforms, SaaS products, e-commerce systems, mobile apps, and enterprise software solutions." />
+  <meta name="twitter:image" content="logo.png" />
+  
+  
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -22,9 +38,9 @@
       --orange: #FE6622;
       --blue:   #4580B2;
       --green:  #00A56B;
-      --font-display: 'Syne', sans-serif;
-      --font-body:    'Space Grotesk', sans-serif;
-      --font-serif:   'DM Serif Display', serif;
+      --font-display: 'Satoshi', sans-serif;
+      --font-body:    'Satoshi', sans-serif;
+      --font-serif:   'Satoshi', sans-serif;
       --border: 3px solid var(--dark);
       --shadow: 6px 6px 0 var(--dark);
       --shadow-sm: 4px 4px 0 var(--dark);
@@ -36,7 +52,7 @@
       color: var(--dark);
       font-family: var(--font-body);
       -webkit-font-smoothing: antialiased;
-      cursor: none;
+      
       overflow-x: hidden;
     }
 
@@ -58,23 +74,11 @@
 
     /* ── CUSTOM CURSOR ────────────────────── */
     #cursor-dot {
-      position: fixed; width: 10px; height: 10px;
-      background: var(--dark); border-radius: 50%;
-      pointer-events: none; z-index: 9999;
-      transform: translate(-50%,-50%);
-      transition: width .15s, height .15s, background .2s;
-      will-change: transform;
+      display: none;
     }
     #cursor-ring {
-      position: fixed; width: 36px; height: 36px;
-      border: 2px solid var(--orange); border-radius: 50%;
-      pointer-events: none; z-index: 9998;
-      transform: translate(-50%,-50%);
-      transition: width .3s, height .3s, border-color .3s;
-      will-change: transform;
+      display: none;
     }
-    body.ch #cursor-dot  { width: 14px; height: 14px; background: var(--pink); }
-    body.ch #cursor-ring { width: 56px; height: 56px; border-color: var(--pink); }
     #mouse-light {
       position: fixed; width: 700px; height: 700px; border-radius: 50%;
       background: radial-gradient(circle, rgba(254,190,15,.06) 0%, transparent 65%);
@@ -146,7 +150,7 @@
       background: transparent; color: var(--dark);
       font-family: var(--font-display); font-size: 12px; font-weight: 700;
       letter-spacing: .08em; text-transform: uppercase;
-      cursor: none; text-decoration: none; display: inline-block;
+       text-decoration: none; display: inline-block;
       transition: all .2s;
       box-shadow: 3px 3px 0 var(--dark);
     }
@@ -160,7 +164,7 @@
       background: var(--yellow); color: var(--dark);
       font-family: var(--font-display); font-size: 12px; font-weight: 700;
       letter-spacing: .08em; text-transform: uppercase;
-      cursor: none; text-decoration: none; display: inline-block;
+       text-decoration: none; display: inline-block;
       transition: all .2s;
       box-shadow: 3px 3px 0 var(--dark);
     }
@@ -239,7 +243,7 @@
       background: var(--cream); color: var(--dark);
       font-family: var(--font-display); font-size: 12px; font-weight: 700;
       letter-spacing: .06em; text-transform: uppercase;
-      cursor: none;
+      
       box-shadow: 3px 3px 0 var(--dark);
       transition: all .18s;
     }
@@ -352,10 +356,40 @@
       border-bottom: 3px solid var(--dark);
     }
 
+    .section-intro {
+      margin-bottom: 60px;
+    }
+    .section-label {
+      font-family: var(--font-display);
+      font-size: 11px; font-weight: 700;
+      letter-spacing: .18em; text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 16px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(30px, 3.8vw, 56px);
+      line-height: 1.1;
+      letter-spacing: -.02em;
+      color: var(--dark);
+      margin-bottom: 20px;
+    }
+    .section-title em {
+      font-family: var(--font-serif); font-style: italic; font-weight: 400;
+    }
+    .section-subtitle {
+      font-size: 15px; font-weight: 400;
+      color: rgba(28,18,8,.65); line-height: 1.75;
+      max-width: 720px;
+    }
+
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 32px;
+      margin-bottom: 60px;
     }
 
     .proj-card {
@@ -365,7 +399,7 @@
       padding: 40px;
       position: relative;
       display: flex; flex-direction: column; justify-content: space-between;
-      min-height: 480px;
+      min-height: 400px;
       transition: transform .2s, box-shadow .2s;
     }
     .proj-card:hover {
@@ -398,6 +432,7 @@
     .proj-card:nth-child(4) .proj-cat { background: var(--green); color: var(--cream); }
     .proj-card:nth-child(5) .proj-cat { background: var(--orange); color: var(--cream); }
     .proj-card:nth-child(6) .proj-cat { background: var(--blue); color: var(--cream); }
+    .proj-card:nth-child(7) .proj-cat { background: var(--green); color: var(--cream); }
 
     .proj-name {
       font-family: var(--font-display);
@@ -423,25 +458,33 @@
       box-shadow: 2px 2px 0 var(--dark);
     }
 
-    .proj-metric {
-      margin-bottom: 28px;
-      padding: 16px 20px;
+    .proj-link {
+      font-family: var(--font-display);
+      font-size: 13px; font-weight: 700;
+      color: var(--dark); text-decoration: none;
+      letter-spacing: .04em; display: inline-flex; align-items: center; gap: 6px;
+      width: fit-content; padding: 10px 20px; border: 2px solid var(--dark);
+      background: var(--cream); box-shadow: var(--shadow-sm);
+      transition: all .2s;
+    }
+    .proj-link:hover {
+      background: var(--dark); color: var(--cream);
+      transform: translate(-1px, -1px); box-shadow: 5px 5px 0 var(--dark);
+    }
+
+    /* ── CTA BANNER ───────────────────────── */
+
+    .proj-tech {
+      display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px;
+    }
+    .tech-tag {
+      padding: 5px 12px;
       background: var(--cream);
       border: 2px solid var(--dark);
-      box-shadow: var(--shadow-sm);
-    }
-    .proj-card:nth-child(even) .proj-metric { background: rgba(254,190,15,.08); }
-    .proj-card:nth-child(odd) .proj-metric { background: rgba(0,165,107,.05); }
-
-    .metric-big {
       font-family: var(--font-display);
-      font-size: 28px; font-weight: 800;
+      font-size: 11px; font-weight: 700;
       color: var(--dark);
-      line-height: 1.1;
-    }
-    .metric-label {
-      font-size: 12px; font-weight: 500;
-      color: rgba(28,18,8,.55); margin-top: 4px;
+      box-shadow: 2px 2px 0 var(--dark);
     }
 
     .proj-link {
@@ -493,7 +536,7 @@
       padding: 14px 32px;
       background: var(--yellow); color: var(--dark);
       font-family: var(--font-display); font-size: 14px; font-weight: 700;
-      border: 2px solid var(--dark); cursor: none; text-decoration: none;
+      border: 2px solid var(--dark);  text-decoration: none;
       letter-spacing: .02em; text-transform: uppercase;
       box-shadow: 4px 4px 0 var(--dark);
       transition: all .2s;
@@ -582,23 +625,69 @@
     /* ── RESPONSIVE ────────────────────────── */
     @media(max-width:1024px) {
       .projects-grid { grid-template-columns: 1fr; }
+      .filter-pills { flex-wrap: wrap; justify-content: center; }
     }
     @media(max-width:900px) {
       .hero { grid-template-columns: 1fr; min-height: auto; }
-      .hero-left { border-right: none; border-bottom: 3px solid var(--dark); padding: 80px 24px 60px; }
+      .hero-left { border-right: none; border-bottom: 3px solid var(--dark); padding: 60px 24px 48px; }
       .hero-right { height: 480px; padding: 32px 24px; }
-      .projects-section { padding: 80px 24px; }
+      .projects-section { padding: 60px 24px; }
       nav { padding: 0 24px; }
       .nav-links { display: none; }
-      .cta-banner { margin: 60px 24px; padding: 40px 24px; flex-direction: column; align-items: flex-start; }
-      .cta-actions { width: 100%; justify-content: flex-start; }
+      .cta-banner { margin: 48px 24px; padding: 40px 24px; flex-direction: column; align-items: flex-start; }
+      .cta-actions { width: 100%; justify-content: flex-start; flex-direction: column; }
+      .cta-actions a { width: 100%; }
       footer { grid-template-columns: 1fr; gap: 40px; padding: 60px 24px; }
-      .foot-right { justify-content: flex-start; gap: 60px; }
+      .foot-right { justify-content: flex-start; gap: 40px; }
+      .hero h1 { font-size: clamp(32px, 7vw, 54px); }
+      .hero-sub { font-size: 14px; }
+      .film-frame { max-width: 100%; }
     }
     @media(max-width:600px) {
       .nav-actions .btn-outline { display: none; }
+      .nav-actions { gap: 0; }
+      .btn-solid { padding: 6px 16px; font-size: 11px; }
+      .hero-left { padding: 40px 20px 36px; }
+      .hero-right { height: 380px; padding: 24px 20px; }
+      .hero h1 { font-size: 28px; margin-bottom: 20px; }
+      .hero h1 em { font-size: 22px; }
+      .hero-sub { font-size: 13px; max-width: 100%; margin-bottom: 36px; }
+      .vintage-badge { font-size: 10px; padding: 4px 12px; margin-bottom: 20px; }
+      .filter-pills { gap: 8px; margin-bottom: 32px; }
+      .pill { padding: 6px 14px; font-size: 10px; }
+      .projects-section { padding: 48px 20px; }
+      .section-title { font-size: 28px; margin-bottom: 40px; }
+      .proj-card { padding: 0; }
+      .proj-img { height: 200px; }
+      .proj-info { padding: 20px; }
+      .proj-name { font-size: 18px; }
+      .proj-desc { font-size: 13px; margin-bottom: 14px; }
+      .proj-tag { font-size: 9px; padding: 4px 10px; }
+      .cta-banner { margin: 36px 20px; padding: 32px 20px; }
+      .cta-text h2 { font-size: 24px; }
+      .cta-text p { font-size: 14px; }
+      .btn-lime, .cta-banner .btn-outline { padding: 12px 24px; font-size: 13px; }
+      footer { padding: 48px 20px; }
+      .foot-right { gap: 32px; }
+      .ticker-bar { height: 36px; }
+      .ticker-item { font-size: 10px; padding: 0 18px; }
+      nav { padding: 0 16px; }
+      .nav-brand { font-size: 16px; }
+      .nav-logo-mark { width: 28px; height: 28px; }
+      .fpill { font-size: 10px; padding: 5px 10px; }
+      .corner-stamp { width: 60px; height: 60px; bottom: 24px; right: 24px; }
+      .stamp-text { font-size: 7px; }
+    }
+    @media(max-width:400px) {
+      .hero h1 { font-size: 24px; }
+      .hero h1 em { font-size: 20px; }
+      .hero-right { height: 320px; }
+      .proj-img { height: 180px; }
+      .proj-info { padding: 16px; }
+      nav { height: 56px; }
     }
   </style>
+  <link rel="stylesheet" href="responsive.css" />
 </head>
 <body>
 <div id="grain"></div>
@@ -610,13 +699,7 @@
 <!-- NAV -->
 <nav>
   <a href="index.html" class="nav-logo">
-    <div class="nav-logo-mark">
-      <svg viewBox="0 0 20 20" fill="none">
-        <polygon points="10,1 19,6 19,14 10,19 1,14 1,6" fill="var(--yellow)" stroke="var(--yellow)" stroke-width="1"/>
-        <circle cx="10" cy="10" r="3" fill="var(--cream)"/>
-      </svg>
-    </div>
-    <span class="nav-brand">Xzeon<span>.</span></span>
+    <img src="logo.png" alt="Xzeon Technologies Logo" class="nav-logo-img" />
   </a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
@@ -627,7 +710,7 @@
   </ul>
   <div class="nav-actions">
     <div class="magnetic-wrap"><a href="projects.html" class="btn-outline">Our Work</a></div>
-    <div class="magnetic-wrap"><a href="contact.html" class="btn-solid">Book a Call</a></div>
+    <div class="magnetic-wrap"><a href="https://wa.me/917340591251?text=Hello%20Xzeon%20Technologies%2C%0A%0AI%20visited%20your%20website%20and%20I%27m%20interested%20in%20your%20services.%0A%0APlease%20contact%20me%20to%20discuss%20my%20project.%0A%0AThank%20you%21" target="_blank" class="btn-solid">Book a Call</a></div>
   </div>
 </nav>
 
@@ -637,30 +720,21 @@
   
   <!-- LEFT PANEL -->
   <div class="hero-left">
-    <div class="vintage-badge"><span class="badge-dot"></span> Our Portfolio</div>
+    <div class="vintage-badge"><span class="badge-dot"></span> Design Inspiration</div>
     <h1 id="hero-h1">
-      Work That Speaks<br>
-      <span class="hl-orange">For Itself.</span>
+      Experiences That<br>
+      <span class="hl-orange">Inspire Us.</span>
     </h1>
-    <p class="hero-sub">50+ projects delivered for startups, scale-ups, and enterprises worldwide — each one built to perform.</p>
-    
-    <div class="filter-pills">
-      <button class="pill active" data-filter="all">All</button>
-      <button class="pill" data-filter="ai">AI</button>
-      <button class="pill" data-filter="saas">SaaS</button>
-      <button class="pill" data-filter="web">Web</button>
-      <button class="pill" data-filter="mobile">Mobile</button>
-      <button class="pill" data-filter="automation">Automation</button>
-    </div>
+    <p class="hero-sub">A curated collection of exceptional digital experiences that influence our design philosophy and creative standards.</p>
   </div>
 
   <!-- RIGHT PANEL -->
   <div class="hero-right">
     <!-- Floating pills -->
     <div class="float-pills">
-      <div class="fpill">🎞️ Case Studies</div>
-      <div class="fpill">📽️ Project Reel</div>
-      <div class="fpill">🏆 50+ Delivered</div>
+      <div class="fpill">� Design Standards</div>
+      <div class="fpill">✨ Inspiration</div>
+      <div class="fpill">� Excellence</div>
     </div>
 
     <!-- Retro Film frame playing the projector video -->
@@ -684,152 +758,148 @@
   </div>
 </section>
 
-<!-- PROJECTS GRID -->
+<!-- DESIGN INSPIRATION SECTION -->
 <section class="projects-section">
   <div class="dots-bg" style="opacity:.3"></div>
+  
+  <div class="section-intro">
+    <div class="section-label"><span class="badge-dot"></span> Experience References</div>
+    <h2 class="section-title">Exceptional experiences<br><em>that inspire our work.</em></h2>
+    <p class="section-subtitle">These websites represent the design standards and creative excellence that influence our approach. We study these experiences to push our own work forward.</p>
+  </div>
+
   <div class="projects-grid" id="grid">
     <!-- 01 -->
-    <div class="proj-card" data-cat="ai">
+    <div class="proj-card">
       <div>
         <div class="proj-header">
           <span class="proj-num">01</span>
-          <span class="proj-cat">AI Platform</span>
+          <span class="proj-cat">Vintage Commerce</span>
         </div>
-        <div class="proj-name">Veritas AI</div>
-        <p class="proj-desc">ML-powered document intelligence platform for legal firms — extracting key clauses, flagging risks, and accelerating due diligence at scale.</p>
+        <div class="proj-name">HEP Vintage Club</div>
+        <p class="proj-desc">A masterclass in vintage e-commerce with smooth parallax scrolling, premium typography, and immersive product storytelling that transports you to another era.</p>
         <div class="proj-tech">
-          <span class="tech-tag">React</span>
-          <span class="tech-tag">Python</span>
-          <span class="tech-tag">OpenAI</span>
-          <span class="tech-tag">FastAPI</span>
+          <span class="tech-tag">Smooth Scrolling</span>
+          <span class="tech-tag">Premium Typography</span>
+          <span class="tech-tag">Storytelling</span>
         </div>
       </div>
       <div>
-        <div class="proj-metric">
-          <div class="metric-big">78%</div>
-          <div class="metric-label">Reduction in document review time</div>
-        </div>
-        <div class="magnetic-wrap"><a href="contact.html" class="proj-link">View Case Study →</a></div>
+        <div class="magnetic-wrap"><a href="https://hepvintageclub.com" target="_blank" rel="noopener" class="proj-link">Visit Website →</a></div>
       </div>
     </div>
     <!-- 02 -->
-    <div class="proj-card" data-cat="saas">
+    <div class="proj-card">
       <div>
         <div class="proj-header">
           <span class="proj-num">02</span>
-          <span class="proj-cat">SaaS Platform</span>
+          <span class="proj-cat">Healthcare UX</span>
         </div>
-        <div class="proj-name">Nexus CRM</div>
-        <p class="proj-desc">Full-stack CRM with AI-powered sales forecasting for B2B companies — unifying pipelines, contacts, and analytics in one intelligent dashboard.</p>
+        <div class="proj-name">CommonSpirit Health</div>
+        <p class="proj-desc">California Hospital Medical Center demonstrates how healthcare websites can be both accessible and visually compelling, with clear navigation and patient-focused design.</p>
         <div class="proj-tech">
-          <span class="tech-tag">Next.js</span>
-          <span class="tech-tag">PostgreSQL</span>
-          <span class="tech-tag">GPT-4</span>
-          <span class="tech-tag">Prisma</span>
+          <span class="tech-tag">Accessibility</span>
+          <span class="tech-tag">Clear Navigation</span>
+          <span class="tech-tag">Patient-Focused</span>
         </div>
       </div>
       <div>
-        <div class="proj-metric">
-          <div class="metric-big">3×</div>
-          <div class="metric-label">Faster deal closure rate</div>
-        </div>
-        <div class="magnetic-wrap"><a href="contact.html" class="proj-link">View Case Study →</a></div>
+        <div class="magnetic-wrap"><a href="https://www.commonspirit.org" target="_blank" rel="noopener" class="proj-link">Visit Website →</a></div>
       </div>
     </div>
     <!-- 03 -->
-    <div class="proj-card" data-cat="web">
+    <div class="proj-card">
       <div>
         <div class="proj-header">
           <span class="proj-num">03</span>
-          <span class="proj-cat">E-commerce</span>
+          <span class="proj-cat">Luxury Hospitality</span>
         </div>
-        <div class="proj-name">Orbit Commerce</div>
-        <p class="proj-desc">High-performance multi-vendor marketplace built for scale — real-time inventory, smart recommendations, and seamless checkout experiences.</p>
+        <div class="proj-name">Café Landtmann</div>
+        <p class="proj-desc">Vienna's iconic café showcases elegant animations, refined color palettes, and a sophisticated layout that captures the essence of European café culture.</p>
         <div class="proj-tech">
-          <span class="tech-tag">React</span>
-          <span class="tech-tag">Node.js</span>
-          <span class="tech-tag">Stripe</span>
-          <span class="tech-tag">Redis</span>
+          <span class="tech-tag">Elegant Animations</span>
+          <span class="tech-tag">Refined Colors</span>
+          <span class="tech-tag">Sophisticated Layout</span>
         </div>
       </div>
       <div>
-        <div class="proj-metric">
-          <div class="metric-big">$4.2M</div>
-          <div class="metric-label">GMV generated in first 6 months</div>
-        </div>
-        <div class="magnetic-wrap"><a href="contact.html" class="proj-link">View Case Study →</a></div>
+        <div class="magnetic-wrap"><a href="https://www.landtmann.at" target="_blank" rel="noopener" class="proj-link">Visit Website →</a></div>
       </div>
     </div>
     <!-- 04 -->
-    <div class="proj-card" data-cat="mobile">
+    <div class="proj-card">
       <div>
         <div class="proj-header">
           <span class="proj-num">04</span>
-          <span class="proj-cat">Mobile App</span>
+          <span class="proj-cat">Premium E-commerce</span>
         </div>
-        <div class="proj-name">Pulse Health</div>
-        <p class="proj-desc">Cross-platform wellness tracking app with an AI coach that delivers personalized fitness plans, habit tracking, and mental wellness insights.</p>
+        <div class="proj-name">Demel Vienna</div>
+        <p class="proj-desc">The legendary Viennese confectionery's website balances heritage with modern e-commerce, featuring rich imagery, smooth interactions, and luxurious product displays.</p>
         <div class="proj-tech">
-          <span class="tech-tag">React Native</span>
-          <span class="tech-tag">Firebase</span>
-          <span class="tech-tag">TensorFlow</span>
-          <span class="tech-tag">Expo</span>
+          <span class="tech-tag">Rich Imagery</span>
+          <span class="tech-tag">Smooth Interactions</span>
+          <span class="tech-tag">Luxurious Design</span>
         </div>
       </div>
       <div>
-        <div class="proj-metric">
-          <div class="metric-big">50K</div>
-          <div class="metric-label">Active users in first 3 months</div>
-        </div>
-        <div class="magnetic-wrap"><a href="contact.html" class="proj-link">View Case Study →</a></div>
+        <div class="magnetic-wrap"><a href="https://www.demel.com" target="_blank" rel="noopener" class="proj-link">Visit Website →</a></div>
       </div>
     </div>
     <!-- 05 -->
-    <div class="proj-card" data-cat="web">
+    <div class="proj-card">
       <div>
         <div class="proj-header">
           <span class="proj-num">05</span>
-          <span class="proj-cat">Web Platform</span>
+          <span class="proj-cat">Restaurant Experience</span>
         </div>
-        <div class="proj-name">Architect Studio</div>
-        <p class="proj-desc">Premium portfolio and client management platform for creative agencies — with 3D showcases, project galleries, and integrated proposal tooling.</p>
+        <div class="proj-name">Trabocco Punta Cavalluccio</div>
+        <p class="proj-desc">An Italian coastal restaurant that uses bold colors, immersive video backgrounds, and atmospheric storytelling to create a digital experience as memorable as the dining experience.</p>
         <div class="proj-tech">
-          <span class="tech-tag">Next.js</span>
-          <span class="tech-tag">Three.js</span>
-          <span class="tech-tag">GSAP</span>
-          <span class="tech-tag">Vercel</span>
+          <span class="tech-tag">Bold Colors</span>
+          <span class="tech-tag">Video Backgrounds</span>
+          <span class="tech-tag">Atmosphere</span>
         </div>
       </div>
       <div>
-        <div class="proj-metric">
-          <div class="metric-big">0.9s</div>
-          <div class="metric-label">Load time (down from 2.8s)</div>
-        </div>
-        <div class="magnetic-wrap"><a href="contact.html" class="proj-link">View Case Study →</a></div>
+        <div class="magnetic-wrap"><a href="https://www.traboccopuntacavalluccio.it" target="_blank" rel="noopener" class="proj-link">Visit Website →</a></div>
       </div>
     </div>
     <!-- 06 -->
-    <div class="proj-card" data-cat="automation">
+    <div class="proj-card">
       <div>
         <div class="proj-header">
           <span class="proj-num">06</span>
-          <span class="proj-cat">Automation</span>
+          <span class="proj-cat">Food & Catering</span>
         </div>
-        <div class="proj-name">FlowOps</div>
-        <p class="proj-desc">Business process automation suite for SMEs — connecting tools, automating workflows, and giving founders back time to focus on what matters.</p>
+        <div class="proj-name">Georgetown Gourmet</div>
+        <p class="proj-desc">A catering website that demonstrates how clear information architecture, appetizing photography, and intuitive ordering flows can drive conversion in the food industry.</p>
         <div class="proj-tech">
-          <span class="tech-tag">Node.js</span>
-          <span class="tech-tag">n8n</span>
-          <span class="tech-tag">OpenAI</span>
-          <span class="tech-tag">PostgreSQL</span>
+          <span class="tech-tag">Information Architecture</span>
+          <span class="tech-tag">Appetizing Photography</span>
+          <span class="tech-tag">Intuitive Flows</span>
         </div>
       </div>
       <div>
-        <div class="proj-metric">
-          <div class="metric-big">60%</div>
-          <div class="metric-label">Operational cost reduction</div>
+        <div class="magnetic-wrap"><a href="https://georgetowngourmet.com" target="_blank" rel="noopener" class="proj-link">Visit Website →</a></div>
+      </div>
+    </div>
+    <!-- 07 -->
+    <div class="proj-card">
+      <div>
+        <div class="proj-header">
+          <span class="proj-num">07</span>
+          <span class="proj-cat">Corporate Website</span>
         </div>
-        <div class="magnetic-wrap"><a href="contact.html" class="proj-link">View Case Study →</a></div>
+        <div class="proj-name">EaseCarry Green Industries</div>
+        <p class="proj-desc">A corporate website that proves sustainability brands can be visually stunning, featuring clean layouts, purposeful animations, and compelling environmental storytelling.</p>
+        <div class="proj-tech">
+          <span class="tech-tag">Clean Layouts</span>
+          <span class="tech-tag">Purposeful Animations</span>
+          <span class="tech-tag">Environmental Story</span>
+        </div>
+      </div>
+      <div>
+        <div class="magnetic-wrap"><a href="https://easecarry.com" target="_blank" rel="noopener" class="proj-link">Visit Website →</a></div>
       </div>
     </div>
   </div>
@@ -838,11 +908,11 @@
 <!-- CTA -->
 <div class="cta-banner">
   <div class="cta-text">
-    <h2>Have a project in mind?</h2>
-    <p>We'd love to hear about it. Let's build something great together.</p>
+    <h2>Ready to create something exceptional?</h2>
+    <p>Let's build digital experiences inspired by the best, crafted for your unique vision.</p>
   </div>
   <div class="cta-actions">
-    <div class="magnetic-wrap"><a href="contact.html" class="btn-lime">Let's Talk →</a></div>
+    <div class="magnetic-wrap"><a href="contact.html" class="btn-lime">Start Your Project →</a></div>
     <div class="magnetic-wrap"><a href="services.html" class="btn-outline">Our Services</a></div>
   </div>
 </div>
@@ -851,15 +921,14 @@
 <footer>
   <div class="foot-left">
     <a href="index.html" class="foot-logo">
-      <div class="nav-logo-mark">
-        <svg viewBox="0 0 20 20" fill="none">
-          <polygon points="10,1 19,6 19,14 10,19 1,14 1,6" fill="var(--yellow)" stroke="var(--yellow)" stroke-width="1"/>
-          <circle cx="10" cy="10" r="3" fill="var(--cream)"/>
-        </svg>
-      </div>
-      <span class="nav-brand">Xzeon<span>.</span></span>
+      <img src="logo.png" alt="Xzeon Technologies Logo" class="foot-logo-img" />
     </a>
-    <p class="foot-tagline">Building powerful digital solutions for modern businesses. Software · Web · AI.</p>
+    <p class="foot-tagline">AI • Web Development • Automation</p>
+    <div class="foot-contact-info">
+      <p><strong>WhatsApp:</strong> <a href="https://wa.me/917340591251" style="color:inherit;">+91 73405 91251</a></p>
+      <p><strong>Phone:</strong> <a href="tel:+919166504708" style="color:inherit;">+91 91665 04708</a></p>
+      <p><strong>Email:</strong> <a href="mailto:xzenontechnologies@gmail.com" style="color:inherit;">xzenontechnologies@gmail.com</a></p>
+    </div>
     <p class="foot-copy">© 2026 Xzeon Technologies. All rights reserved.</p>
     <div class="foot-socials">
       <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
@@ -879,13 +948,21 @@
       </ul>
     </div>
     <div class="foot-col">
-      <h4>Work</h4>
+      <h4>Inspiration</h4>
       <ul>
-        <li><a href="projects.html">Veritas AI</a></li>
-        <li><a href="projects.html">Nexus CRM</a></li>
-        <li><a href="projects.html">Orbit Commerce</a></li>
-        <li><a href="projects.html">Pulse Health</a></li>
-        <li><a href="projects.html">FlowOps</a></li>
+        <li><a href="projects.html">HEP Vintage Club</a></li>
+        <li><a href="projects.html">CommonSpirit Health</a></li>
+        <li><a href="projects.html">Café Landtmann</a></li>
+        <li><a href="projects.html">Demel Vienna</a></li>
+        <li><a href="projects.html">View All</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:xzenontechnologies@gmail.com">xzenontechnologies@gmail.com</a></li>
+        <li><a href="tel:+919166504708">+91 91665 04708</a></li>
+        <li><a href="https://wa.me/917340591251" target="_blank">WhatsApp: +91 73405 91251</a></li>
       </ul>
     </div>
   </div>
@@ -998,5 +1075,7 @@ if(typeof gsap!=='undefined'){
   gsap.from('.cta-banner',{scrollTrigger:{trigger:'.cta-banner',start:'top 90%'},y:30,opacity:0,duration:.8,ease:'power3.out'});
 }
 </script>
+
+<script src="responsive.js" defer></script>
 </body>
 </html>
