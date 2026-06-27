@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="overflow-x: hidden !important; max-width: 100vw !important;">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -26,6 +26,20 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* Force hide any overflow on mobile */
+    @media (max-width: 768px) {
+      html, body {
+        overflow-x: hidden !important;
+        max-width: 100vw !important;
+        position: relative !important;
+      }
+      
+      /* Hide any text that might overflow */
+      body > *:not(nav):not(#hero):not(.hero-body):not(section):not(footer):not(#grain):not(#dust):not(#mouse-light):not(#cursor-ring):not(#cursor-dot):not(.ticker-bar):not(.mobile-menu):not(.mobile-menu-overlay) {
+        display: none !important;
+      }
+    }
 
     :root {
       --cream:  #FBF5E6;
@@ -660,7 +674,7 @@
   </style>
   <link rel="stylesheet" href="responsive.css" />
 </head>
-<body>
+<body style="overflow-x: hidden !important; max-width: 100vw !important;">
 <div id="grain"></div>
 <canvas id="dust"></canvas>
 <div id="mouse-light"></div>
