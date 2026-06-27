@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="overflow-x: hidden !important; max-width: 100vw !important;">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -689,7 +689,7 @@
   </style>
   <link rel="stylesheet" href="responsive.css" />
 </head>
-<body>
+<body style="overflow-x: hidden !important; max-width: 100vw !important;">
 <div id="grain"></div>
 <canvas id="dust"></canvas>
 <div id="mouse-light"></div>
@@ -785,7 +785,7 @@
         </div>
       </div>
       <div>
-        <div class="magnetic-wrap"><a href="https://hepvintageclub.com" target="_blank" rel="noopener" class="proj-link">Visit Website →</a></div>
+        <div class="magnetic-wrap"><a href="https://hepvintageclub.it" target="_blank" rel="noopener" class="proj-link">Visit Website →</a></div>
       </div>
     </div>
     <!-- 02 -->
@@ -880,7 +880,7 @@
         </div>
       </div>
       <div>
-        <div class="magnetic-wrap"><a href="https://georgetowngourmet.com" target="_blank" rel="noopener" class="proj-link">Visit Website →</a></div>
+        <div class="magnetic-wrap"><a href="https://www.georgetowndcgourmet.com" target="_blank" rel="noopener" class="proj-link">Visit Website →</a></div>
       </div>
     </div>
     <!-- 07 -->
@@ -1034,9 +1034,17 @@
 
 /* LENIS SMOOTH SCROLL */
 if(typeof Lenis!=='undefined'){
-  const lenis = new Lenis({duration:1.2,easing:t=>Math.min(1,1.001-Math.pow(2,-10*t))});
-  function raf(time){lenis.raf(time);requestAnimationFrame(raf);}
-  requestAnimationFrame(raf);
+  const lenis = new Lenis({duration:0.5,easing:t=>Math.min(1,1.001-Math.pow(2,-10*t))});
+  if(typeof ScrollTrigger!=='undefined'){
+    lenis.on('scroll',ScrollTrigger.update);
+  }
+  if(typeof gsap!=='undefined'){
+    gsap.ticker.add(time=>{lenis.raf(time*1000);});
+    gsap.ticker.lagSmoothing(0);
+  } else {
+    function raf(time){lenis.raf(time);requestAnimationFrame(raf);}
+    requestAnimationFrame(raf);
+  }
 }
 
 /* INTERACTIVE PORTFOLIO FILTER */

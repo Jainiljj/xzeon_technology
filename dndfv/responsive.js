@@ -2,7 +2,7 @@
 (function () {
   'use strict';
 
-  document.addEventListener('DOMContentLoaded', function () {
+  function init() {
     var toggle = document.querySelector('.mobile-menu-toggle');
     var overlay = document.querySelector('.mobile-menu-overlay');
     var menu = document.querySelector('.mobile-menu');
@@ -11,6 +11,7 @@
     var body = document.body;
     var scrollY = 0;
 
+    // Inject toggle button if missing
     if (!toggle && navActions) {
       toggle = document.createElement('button');
       toggle.className = 'mobile-menu-toggle';
@@ -20,12 +21,14 @@
       navActions.appendChild(toggle);
     }
 
+    // Inject overlay if missing
     if (!overlay) {
       overlay = document.createElement('div');
       overlay.className = 'mobile-menu-overlay';
       body.appendChild(overlay);
     }
 
+    // Inject menu if missing
     if (!menu) {
       menu = document.createElement('div');
       menu.className = 'mobile-menu';
@@ -52,6 +55,7 @@
       body.appendChild(menu);
     }
 
+    // Set active state on mobile menu links based on current path
     var currentPath = window.location.pathname.split('/').pop() || 'index.html';
     var menuLinks = menu.querySelectorAll('ul li a');
     menuLinks.forEach(function (link) {
@@ -129,5 +133,12 @@
         }
       }, 250);
     });
-  });
+  }
+
+  // Safe execution check if DOM is already parsed
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 })();
